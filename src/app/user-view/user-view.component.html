@@ -1,0 +1,9 @@
+<md-toolbar class="header">
+	<span>Hi user!</span>
+	<button md-button (click)="goToProfile()">Profile</button>
+	<button md-button (click)="goToTimer()">Timer</button>
+	<button md-button (click)="goToUsers()">All users</button>
+	<span class="spacer"></span>
+	<button md-raised-button (click)="logout()">logout</button>
+</md-toolbar>
+<router-outlet></router-outlet>

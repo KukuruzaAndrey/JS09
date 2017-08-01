@@ -1,0 +1,31 @@
+<div class="table-container mat-elevation-z8">
+	<md-table #table [dataSource]="dataSource" mdSort>
+		<ng-container cdkColumnDef="name">
+			<md-header-cell *cdkHeaderCellDef md-sort-header>Name</md-header-cell>
+			<md-cell *cdkCellDef="let row"> {{row.name}}</md-cell>
+		</ng-container>
+
+		<ng-container cdkColumnDef="surname">
+			<md-header-cell *cdkHeaderCellDef md-sort-header>Surname</md-header-cell>
+			<md-cell *cdkCellDef="let row"> {{row.surname}}</md-cell>
+		</ng-container>
+
+		<ng-container cdkColumnDef="email">
+			<md-header-cell *cdkHeaderCellDef md-sort-header>E-mail</md-header-cell>
+			<md-cell *cdkCellDef="let row"> {{row.email}}</md-cell>
+		</ng-container>
+
+		<ng-container cdkColumnDef="year">
+			<md-header-cell *cdkHeaderCellDef md-sort-header>Year</md-header-cell>
+			<md-cell *cdkCellDef="let row"> {{row.year}}</md-cell>
+		</ng-container>
+
+		<ng-container cdkColumnDef="password">
+			<md-header-cell *cdkHeaderCellDef md-sort-header>Pass</md-header-cell>
+			<md-cell *cdkCellDef="let row"> {{row.password}}</md-cell>
+		</ng-container>
+
+		<md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+		<md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+	</md-table>
+</div>

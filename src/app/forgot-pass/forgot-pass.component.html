@@ -1,0 +1,22 @@
+<div class="container-component">
+	<form [formGroup]="forgotPassForm" class="container-form">
+
+		<md-input-container class="container-input">
+			<input mdInput placeholder="Email" formControlName="email" type="email" email autocomplete="email">
+			<md-error *ngIf="forgotPassForm.get('email').hasError('required')">
+				Email is <strong>required</strong>
+			</md-error>
+			<md-error *ngIf="forgotPassForm.get('email').hasError('email')">
+				Please enter a valid email address
+			</md-error>
+		</md-input-container>
+
+		<div id="g-recaptcha"></div>
+		<div class="container-button">
+			<button md-raised-button [disabled]="!forgotPassForm.valid" (click)="showpass()">Remind your password
+			</button>
+		</div>
+	</form>
+	<router-outlet></router-outlet>
+</div>
+

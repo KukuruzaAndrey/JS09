@@ -1,0 +1,54 @@
+<div class="container-component">
+	<form [formGroup]="registrationForm" class="container-form">
+		<md-input-container class="container-input">
+			<input mdInput placeholder="Name" formControlName="name" autocomplete ="given-name">
+			<md-error *ngIf="registrationForm.get('name').hasError('required')">
+				Name is <strong>required</strong>
+			</md-error>
+		</md-input-container>
+
+		<md-input-container class="container-input">
+			<input mdInput placeholder="Surname" formControlName="surname" autocomplete ="additional-name">
+			<md-error *ngIf="registrationForm.get('surname').hasError('required')">
+				Surname is <strong>required</strong>
+			</md-error>
+		</md-input-container>
+
+		<md-input-container class="container-input">
+			<input mdInput placeholder="Email" formControlName="email" type="email" email autocomplete ="email">
+			<md-error *ngIf="registrationForm.get('email').hasError('required')">
+				Email is <strong>required</strong>
+			</md-error>
+			<md-error *ngIf="registrationForm.get('email').hasError('email')">
+				Please enter a valid email address
+			</md-error>
+		</md-input-container>
+
+		<md-input-container class="container-input">
+			<input mdInput placeholder="Year" formControlName="year" type="number" autocomplete ="bday-year">
+			<md-error *ngIf="registrationForm.get('year').hasError('required')">
+				Year is <strong>required</strong>
+			</md-error>
+			<md-error *ngIf="registrationForm.get('year').hasError('max')">
+				Please confirm that you are an adult
+			</md-error>
+			<md-error *ngIf="registrationForm.get('year').hasError('min')">
+				Please enter a valid year
+			</md-error>
+		</md-input-container>
+
+		<md-input-container class="container-input" >
+			<input mdInput placeholder="Password"
+				   formControlName="password" type="password">
+			<md-error *ngIf="registrationForm.get('password').hasError('required')">
+				Password is <strong>required</strong>
+			</md-error>
+			<md-error *ngIf="registrationForm.get('password').hasError('minLength')">
+				Password requires at least 3 characters
+			</md-error>
+		</md-input-container>
+		<div class="container-button">
+			<button md-raised-button [disabled]="!registrationForm.valid" (click)="registerUser()">Registration</button>
+		</div>
+	</form>
+</div>

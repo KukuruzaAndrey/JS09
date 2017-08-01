@@ -1,0 +1,35 @@
+<div class="container-component">
+	<form [formGroup]="logInForm" class="container-form">
+
+		<md-input-container class="container-input">
+			<input mdInput placeholder="Email" formControlName="email" type="email" email autocomplete="email">
+			<md-error *ngIf="logInForm.get('email').hasError('required')">
+				Email is <strong>required</strong>
+			</md-error>
+			<md-error *ngIf="logInForm.get('email').hasError('email')">
+				Please enter a valid email address
+			</md-error>
+		</md-input-container>
+
+		<md-input-container class="container-input">
+			<input mdInput placeholder="Password"
+				   formControlName="password" type="password">
+			<md-error *ngIf="logInForm.get('password').hasError('required')">
+				Password is <strong>required</strong>
+			</md-error>
+			<md-error *ngIf="logInForm.get('password').hasError('minLength')">
+				At least 3 symbols
+			</md-error>
+		</md-input-container>
+		<div class="container-button">
+			<button md-raised-button [disabled]="!logInForm.valid" (click)="logIn()">Log in</button>
+		</div>
+		<md-error class="mat-body-1" *ngIf="!isRegister">
+			Wrong e-mail or password
+		</md-error>
+	</form>
+	<div class="container-buttons">
+		<button md-button (click)="goToRegister()">Registration</button>
+		<button md-button (click)="goToForgotPass()">Forgot your password?</button>
+	</div>
+</div>
